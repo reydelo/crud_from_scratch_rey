@@ -11,7 +11,9 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      redirect_to root_path
+      redirect_to statuses_path, notice: 'Status has been posted!'
+    else
+      render :new
     end
   end
 
@@ -19,10 +21,24 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
   end
 
+  def edit
+    @status = Status.find(params[:id])
+  end
+
   def update
+    @status = Status.find(params[:id])
+    if @status.update(status_params)
+      redirect_to statuses_path, notice: 'Status was successfully updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @status = Status.find(params[:id])
+    if @status.destroy
+      redirect_to statuses_path, notice: 'Status was successfully deleted'
+    end
   end
 
   private

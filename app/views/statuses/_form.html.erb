@@ -1,10 +1,39 @@
-<%= form_for @status do |f| %>
+<%= form_for(@status, html: {class: "form-horizontal"}) do |f| %>
 
-<%= f.label :status %>
-<%= f.text_field :status %>
+<div class="form-group">
+  <div class = "field">
+    <div class = "control-label col-md-2">
+      <%= f.label :status %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= f.text_field :status, class: "form-control" %>
+  </div>
+</div>
 
-<%= f.label :user %>
-<%= f.text_field :user %>
 
-<%= f.submit %>
+<div class="form-group">
+  <div class = "field">
+    <div class = "control-label col-md-2">
+      <%= f.label :user, "Username" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= f.text_field :user, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-4 col-md-offset-2">
+    <div class="action">
+      <%= f.submit class: "btn btn-primary" %>
+      <a class= "btn btn-default" href= "/statuses">Cancel</a>
+      <% if @status.id != nil %>
+      <a class= "btn btn-danger" <%= link_to 'Delete', @status, method: :delete, data: { confirm: 'Are you sure?'} %></a>
+      <% end  %>
+    </div>
+  </div>
+</div>
+
+
 <% end %>

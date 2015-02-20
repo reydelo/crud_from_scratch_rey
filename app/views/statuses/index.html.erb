@@ -1,6 +1,11 @@
-<%= link_to 'New Status Update', new_status_path %>
+<div class="container">
+    <div class="page-header">
+      <div class="pull-right">
+        <%= link_to 'New Status Update', new_status_path, class: "btn btn-info" %>
+      </div>
+      <h1>News Feed</h1></div>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Status Update</th>
@@ -17,3 +22,5 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
