@@ -1,1 +1,19 @@
-HEY THERE!
+<%= link_to 'New Status Update', new_status_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Update</th>
+      <th>User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statuses.each do |s| %>
+      <tr>
+        <td><%= link_to s.status, status_path(s) %></td>
+        <td><%= s.user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

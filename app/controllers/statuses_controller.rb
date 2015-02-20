@@ -11,7 +11,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      redirect_to status_path
+      redirect_to root_path
     end
   end
 
