@@ -1,4 +1,4 @@
-class StatusesController < Application Controller
+class StatusesController < ApplicationController
 
   def index
     @statuses = Status.all
@@ -28,5 +28,6 @@ class StatusesController < Application Controller
   private
   def status_params
     params.require(:status).permit(:status, :user, :likes)
+  end
 
 end
