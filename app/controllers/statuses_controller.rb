@@ -41,6 +41,12 @@ class StatusesController < ApplicationController
     end
   end
 
+  def thumbs_up
+    @status = Status.find(params[:id])
+    @status.likes.create
+    redirect_to(statuses_path)
+  end
+
   private
   def status_params
     params.require(:status).permit(:status, :user, :likes)

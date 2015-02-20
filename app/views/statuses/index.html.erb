@@ -16,8 +16,10 @@
   <tbody>
     <% @statuses.each do |s| %>
       <tr>
-        <td><%= link_to s.status, status_path(s) %></td>
         <td><%= s.user %></td>
+        <td><%= link_to s.status, status_path(s) %></td>
+        <td> <%= pluralize(s.likes.count, "like") %></td>
+        <td> <%= button_to '+1', thumbs_up_status_path(s), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
